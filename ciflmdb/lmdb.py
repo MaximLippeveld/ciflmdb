@@ -12,7 +12,7 @@ class ciflmdb:
         self.env = lmdb.open(db_path, subdir=os.path.isdir(db_path),
             readonly=True, lock=False,readahead=False, meminit=False)
         self.endianess = endianess
-        self.logger = logging.getLogger()
+        self.logger = logging.getLogger(__name__)
         self.dropped = set()
 
         with self.get_read_txn() as txn:
